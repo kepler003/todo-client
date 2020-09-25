@@ -61,7 +61,7 @@ function Note({id, body}) {
 
     } catch(err) {
 
-      console.log(err.response.data.message || err);
+      console.log(err);
     }
   }
 

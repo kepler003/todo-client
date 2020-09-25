@@ -18,7 +18,7 @@ function Nav() {
 
     } catch (err) {
 
-      console.log(err.response.data.message || err)
+      console.log(err);
 
     } finally {
       

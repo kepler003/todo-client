@@ -41,8 +41,7 @@ function LogInDialog(props) {
       
     } catch(err) {
 
-      setError(err.response.data.message || err.response.data);
-      console.log(err.response.data.message || err);
+      console.log(err);
     }
   }
 
