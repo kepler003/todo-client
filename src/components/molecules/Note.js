@@ -1,5 +1,6 @@
 import React, {useContext, useState, Fragment} from 'react';
 import AppContext from '../../contexts/AppContext';
+import axios from 'axios';
 
 import Button from '../atoms/Button';
 import Input from '../atoms/Input';
@@ -21,15 +22,30 @@ function Note({id, body}) {
     setText(e.target.value);
   }
 
-  const handleSave = () => {
-    setContext(prev => ({
-      ...prev,
-      notes: prev.notes.map(note => note.id === id ? ({
-        id: note.id,
+  const handleSave = async () => {
+
+    try {
+
+      const response = (await axios.put('/notes/' + id, {
         body: text
-      }) : note)
-    }))
-    setEdit(false);
+      })).data;
+
+      setContext(prev => ({
+        ...prev,
+        notes: prev.notes.map(note => note.id === id ? ({
+          id: response.id,
+          body: response.body
+        }) : note)
+      }))
+
+    } catch(err) {
+
+      console.log(err.response.data.message || err);
+
+    } finally {
+
+      setEdit(false);
+    } 
   }
 
   const handleDelete = () => {
