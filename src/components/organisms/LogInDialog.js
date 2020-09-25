@@ -24,7 +24,7 @@ function LogInDialog(props) {
 
       if(!data.username || !data.password) return;
   
-      const response = (await axios.post(url + '/user/login',
+      const response = (await axios.post('https://to-do-bp.herokuapp.com/user/login',
       {
         username: data.username,
         password: data.password
