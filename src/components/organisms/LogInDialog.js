@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, {useState} from 'react';
 import {useHistory} from 'react-router-dom';
 
 import Button from '../atoms/Button';
@@ -7,7 +7,36 @@ import InputBox from '../molecules/InputBox';
 
 function LogInDialog(props) {
 
-  const history = useHistory();
+  const history = useHistory()
+  const [data, setData] = useState({username: null, password: null})
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+
+    if(data.username && data.password){
+      console.log(data);
+    }
+  }
+
+  const handleUsernameChange = (e) => {
+    e.persist();
+    setData(prev => {
+      return {
+        ...prev,
+        username: e.target.value
+      }
+    })
+  }
+
+  const handlePasswordChange = (e) => {
+    e.persist();
+    setData(prev => {
+      return {
+        ...prev,
+        password: e.target.value
+      }
+    })
+  }
 
   const handleGoToSignUp = (e) => {
     e.preventDefault();
@@ -16,10 +45,10 @@ function LogInDialog(props) {
 
   return (
     <div className='dialog__container'>
-      <form className='dialog'>
+      <form className='dialog' onSubmit={handleSubmit}>
         <h1 className='dialog__heading'>Zaloguj się</h1>
-        <InputBox label='Nazwa użytkownika'/>
-        <InputBox label='Hasło' password/>
+        <InputBox label='Nazwa użytkownika' onChange={handleUsernameChange}/>
+        <InputBox label='Hasło' password onChange={handlePasswordChange}/>
         <div className='dialog__action-btns'>
           <Button primary min>Zaloguj się</Button>
           <span className='dialog__separator'>lub</span>
