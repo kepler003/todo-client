@@ -1,20 +1,48 @@
 
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import {useHistory} from 'react-router-dom';
+import axios from 'axios';
 
+import AppContext from '../../contexts/AppContext';
 import Button from '../atoms/Button';
 import InputBox from '../molecules/InputBox';
 
 function LogInDialog(props) {
 
-  const history = useHistory()
-  const [data, setData] = useState({username: null, password: null})
+  const {setContext}        = useContext(AppContext);
+  const history             = useHistory()
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
+  const [data, setData]     = useState({username: null, password: null})
+  const [error, setError]   = useState('');
 
-    if(data.username && data.password){
-      console.log(data);
+  const handleSubmit = async (e) => {
+
+    try {
+      
+      e.preventDefault()
+  
+      if(!data.username || !data.password) return;
+  
+      const response = (await axios.post('/user/login',
+      {
+        username: data.username,
+        password: data.password
+      })).data;
+      
+      setContext({
+        user: {
+          id       : response.user.id,
+          username : response.user.username
+        },
+        notes: response.notes
+      })
+
+      history.push('/profile');
+      
+    } catch(err) {
+
+      setError(err.response.data.message || err.response.data);
+      console.log(err.response.data.message || err);
     }
   }
 
@@ -26,6 +54,7 @@ function LogInDialog(props) {
         username: e.target.value
       }
     })
+    setError('');
   }
 
   const handlePasswordChange = (e) => {
@@ -36,6 +65,7 @@ function LogInDialog(props) {
         password: e.target.value
       }
     })
+    setError('');
   }
 
   const handleGoToSignUp = (e) => {
@@ -48,7 +78,7 @@ function LogInDialog(props) {
       <form className='dialog' onSubmit={handleSubmit}>
         <h1 className='dialog__heading'>Zaloguj się</h1>
         <InputBox label='Nazwa użytkownika' onChange={handleUsernameChange}/>
-        <InputBox label='Hasło' password onChange={handlePasswordChange}/>
+        <InputBox label='Hasło' error={error} password onChange={handlePasswordChange}/>
         <div className='dialog__action-btns'>
           <Button primary min>Zaloguj się</Button>
           <span className='dialog__separator'>lub</span>
