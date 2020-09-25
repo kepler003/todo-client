@@ -25,7 +25,7 @@ function App() {
   return (
     <div className='container'>
       <AppContext.Provider value={{context, setContext}}>
-        <Router basename='/todo-client'>
+        <Router>
           <Switch>
             <PublicRoute exact path='/' redirectPath='/profile'>
               <LogIn/>
