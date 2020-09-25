@@ -4,7 +4,7 @@ import Label from '../atoms/Label';
 
 function InputBox({label, password, error}) {
 
-  const errorMessage = error ? (<span className='input__error'>Invalid input</span>) : null;
+  const errorMessage = error ? (<span className='input__error'>{error}</span>) : null;
 
   return (
     <div className='input__container'>
