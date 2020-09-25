@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import {
   BrowserRouter as Router,
-  Route
+  Switch,
+  Redirect
 } from 'react-router-dom';
 import AppContext from './contexts/AppContext';
 
@@ -25,15 +26,18 @@ function App() {
     <div className='container'>
       <AppContext.Provider value={{context, setContext}}>
         <Router>
-          <PublicRoute exact path='/' redirectPath='/profile'>
-            <LogIn/>
-          </PublicRoute>
-          <PublicRoute path='/signup' redirectPath='/profile'>
-            <SignUp/>
-          </PublicRoute>
-          <PrivateRoute path='/profile' redirectPath='/'>
-            <UserProfile/>
-          </PrivateRoute>
+          <Switch>
+            <PublicRoute exact path='/' redirectPath='/profile'>
+              <LogIn/>
+            </PublicRoute>
+            <PublicRoute path='/signup' redirectPath='/profile'>
+              <SignUp/>
+            </PublicRoute>
+            <PrivateRoute path='/profile' redirectPath='/'>
+              <UserProfile/>
+            </PrivateRoute>
+            <Redirect to='/'/>
+          </Switch>
         </Router>
       </AppContext.Provider>
     </div>

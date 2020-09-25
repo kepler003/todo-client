@@ -1,8 +1,19 @@
+
 import React from 'react';
+import {useHistory} from 'react-router-dom';
+
 import Button from '../atoms/Button';
 import InputBox from '../molecules/InputBox';
 
-function LogInDialog() {
+function LogInDialog(props) {
+
+  const history = useHistory();
+
+  const handleGoToSignUp = (e) => {
+    e.preventDefault();
+    history.push('/signup');
+  }
+
   return (
     <div className='dialog__container'>
       <form className='dialog'>
@@ -12,7 +23,7 @@ function LogInDialog() {
         <div className='dialog__action-btns'>
           <Button primary min>Zaloguj się</Button>
           <span className='dialog__separator'>lub</span>
-          <Button colorSecondary min>Załóż konto</Button>
+          <Button colorSecondary min onClick={handleGoToSignUp}>Załóż konto</Button>
         </div>
       </form>
     </div>
