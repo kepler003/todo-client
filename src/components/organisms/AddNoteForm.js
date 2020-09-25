@@ -12,22 +12,36 @@ function AddNoteForm() {
   const {setContext} = useContext(AppContext)
   const [text, setText] = useState('')
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
+  const handleSubmit = async (e) => {
+    
+    try {
 
-    if(text.length){
-      setContext(prevContext => {
+      e.preventDefault()
+
+      if(!text.length) return;
+  
+      const response = (await axios.post('/notes', {
+        body: text
+      })).data
+
+      setContext(prev => {
         return {
-          ...prevContext,
-          notes: [...prevContext.notes, {
-            id: prevContext.notes.length + 1,
-            body: text
+          ...prev,
+          notes: [...prev.notes, {
+            id: response.id,
+            body: response.body
           }]
         }
       })
-    }
 
-    setText('')
+    } catch (err) {
+
+      console.log(err.response.data.message || err);
+
+    } finally {
+
+      setText('')
+    }
   }
 
   const handleChange = (e) => {
