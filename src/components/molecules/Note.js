@@ -48,13 +48,21 @@ function Note({id, body}) {
     } 
   }
 
-  const handleDelete = () => {
-    setContext(prev => {
-      return {
+  const handleDelete = async () => {
+    
+    try {
+
+      await axios.delete('/notes/' + id);
+
+      setContext(prev => ({
         ...prev,
-        notes: prev.notes.filter(note => note.id !== id)
-      }
-    })
+        notes: prev.notes.length === 1 ? null : prev.notes.filter(note => note.id !== id)
+      }))
+
+    } catch(err) {
+
+      console.log(err.response.data.message || err);
+    }
   }
 
   const bodyContent = edit ? (

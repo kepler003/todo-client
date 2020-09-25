@@ -27,10 +27,16 @@ function AddNoteForm() {
       setContext(prev => {
         return {
           ...prev,
-          notes: [...prev.notes, {
+          notes: prev.notes === null ? [{
             id: response.id,
             body: response.body
-          }]
+          }] : [
+            ...prev.notes,
+            {
+              id: response.id,
+              body: response.body
+            }
+          ]
         }
       })
 
