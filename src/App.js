@@ -1,8 +1,11 @@
 import React from 'react';
+import WelcomeDialog from './components/organisms/welcomeDialog';
 
 function App() {
   return (
-    <div>Hello world!</div>
+    <div className='container'>
+      <WelcomeDialog/>
+    </div>
   );
 }
 

@@ -11,3 +11,154 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+/* Pre-prepared styles */
+
+:root {
+
+  /* Colors */
+  --primary: hsl(291, 90%, 61%);
+  --secondary: hsl(251, 68%, 70%);
+  --success: hsl(147, 73%, 55%);
+  --warning: hsl(49, 86%, 58%);
+  --danger: hsl(14, 68%, 58%);
+
+  /* Grays */
+  --gray-1: hsl(0, 0%, 10%);
+  --gray-2: hsl(0, 0%, 20%);
+  --gray-3: hsl(0, 0%, 30%);
+  --gray-4: hsl(0, 0%, 40%);
+  --gray-5: hsl(0, 0%, 50%);
+  --gray-6: hsl(0, 0%, 60%);
+  --gray-7: hsl(0, 0%, 70%);
+  --gray-8: hsl(0, 0%, 80%);
+  --gray-9: hsl(0, 0%, 90%);
+
+  /* Shadows */
+  --shadow-1: 0 1px 3px hsla(0, 0%, 0%, 0.2);
+  --shadow-2: 0 4px 6px hsla(0, 0%, 0%, 0.2);
+  --shadow-3: 0 5px 15px hsla(0, 0%, 0%, 0.2);
+  --shadow-4: 0 10px 24px hsla(0, 0%, 0%, 0.2);
+  --shadow-5: 0 15px 35px hsla(0, 0%, 0%, 0.2);
+
+  /* Sizing */
+  --s1: 4px;
+  --s2: 8px;
+  --s3: 12px;
+  --s4: 16px;
+  --s5: 24px;
+  --s6: 32px;
+  --s7: 48px;
+  --s8: 64px;
+  --s9: 96px;
+  --s10: 128px;
+  --s11: 192px;
+  --s12: 256px;
+  --s13: 384px;
+  --s14: 512px;
+  --s15: 640px;
+  --s16: 768px;
+}
+
+
+/* Basic styles */
+
+.flex {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.flex-center {
+  justify-content: center;
+  align-items: center;
+}
+
+.color--primary {
+  color: var(--primary);
+}
+
+.color--secondary {
+  color: var(--secondary);
+}
+
+
+/* Common components */
+
+.button {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  min-width: 35px;
+  min-height: 35px;
+  padding: var(--s2) var(--s4);
+  font-size: var(--s3);
+  background-color: white;
+  color: var(--gray-2);
+  border-radius: 1000px;
+  border: none;
+  text-transform: uppercase;
+}
+
+.button--primary {
+  background-color: var(--primary);
+  color: white;
+}
+
+.button--secondary {
+  background-color: var(--secondary);
+  color: white;
+}
+
+.button--min-w {
+  min-width: var(--s10);
+}
+
+
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--secondary);
+  background: linear-gradient(130deg, var(--primary), var(--secondary));
+}
+
+
+
+/* ** Specific components ** */
+
+/* Dialog */
+
+.dialog__container {
+  padding: var(--s4);
+  width: 100%;
+  max-width: var(--s14);
+  min-height: var(--s9);
+}
+
+.dialog {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  padding-bottom: var(--s7);
+  background-color: white;
+  border-radius: var(--s3);
+  box-shadow: var(--shadow-5);
+}
+
+.dialog__heading {
+  margin: var(--s6) 0 var(--s7) 0;
+  font-size: var(--s6);
+}
+
+.dialog__separator {
+  margin: var(--s4) 0;
+}
