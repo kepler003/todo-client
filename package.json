@@ -2,7 +2,6 @@
   "name": "todo_client",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://to-do-bp.herokuapp.com",
   "homepage": "https://kepler003.github.io/todo-client",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.30",
