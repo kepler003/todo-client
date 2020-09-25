@@ -4,8 +4,8 @@ function Button({children, className, icon, min, colorPrimary, colorSecondary, p
 
   let condClassName = '';
 
-  if(primary) className += 'button--primary'
-  else if(secondary) className += 'button--secondary'
+  if(primary) className += ' button--primary'
+  else if(secondary) className += ' button--secondary'
   
   if(colorPrimary) className += ' button--color-primary'
   if(colorSecondary) className += ' button--color-secondary'

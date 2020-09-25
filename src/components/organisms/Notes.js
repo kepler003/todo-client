@@ -7,7 +7,7 @@ function Notes() {
 
   const {context} = useContext(AppContext);
 
-  const notes = context.notes.length ? (
+  const notes = context.notes !== null ? (
     context.notes.map(note => {
       return (
         <Note key={note.id} {...note}/>
