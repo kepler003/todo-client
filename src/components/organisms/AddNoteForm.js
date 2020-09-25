@@ -1,6 +1,7 @@
 import React, {useState, useContext}  from 'react'
 import AppContext                     from '../../contexts/AppContext'
 import axios                          from 'axios';
+import url                            from '../../config';
 
 import Input                        from '../atoms/Input'
 import Button                       from '../atoms/Button'
@@ -20,7 +21,7 @@ function AddNoteForm() {
 
       if(!text.length) return;
   
-      const response = (await axios.post('/notes', {
+      const response = (await axios.post(url + '/notes', {
         body: text
       })).data
 

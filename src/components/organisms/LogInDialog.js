@@ -2,6 +2,7 @@
 import React, {useState, useContext}  from 'react';
 import {useHistory}                   from 'react-router-dom';
 import axios                          from 'axios';
+import url                            from '../../config';
 
 import AppContext from '../../contexts/AppContext';
 import Button     from '../atoms/Button';
@@ -23,7 +24,7 @@ function LogInDialog(props) {
   
       if(!data.username || !data.password) return;
   
-      const response = (await axios.post('/user/login',
+      const response = (await axios.post(url + '/user/login',
       {
         username: data.username,
         password: data.password

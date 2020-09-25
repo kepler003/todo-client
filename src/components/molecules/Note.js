@@ -1,6 +1,7 @@
 import React, {useContext, useState, Fragment} from 'react';
 import AppContext from '../../contexts/AppContext';
 import axios from 'axios';
+import url from '../../config';
 
 import Button from '../atoms/Button';
 import Input from '../atoms/Input';
@@ -26,7 +27,7 @@ function Note({id, body}) {
 
     try {
 
-      const response = (await axios.put('/notes/' + id, {
+      const response = (await axios.put(url + '/notes/' + id, {
         body: text
       })).data;
 
@@ -52,7 +53,7 @@ function Note({id, body}) {
     
     try {
 
-      await axios.delete('/notes/' + id);
+      await axios.delete(url + '/notes/' + id);
 
       setContext(prev => ({
         ...prev,

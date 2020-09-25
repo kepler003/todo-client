@@ -2,6 +2,7 @@
 import React, {useState, useContext} from 'react';
 import {useHistory} from 'react-router-dom';
 import axios from 'axios';
+import url from '../../config';
 
 import AppContext from '../../contexts/AppContext';
 import Button from '../atoms/Button';
@@ -19,7 +20,7 @@ function SignUpDialog() {
       
       e.preventDefault();
 
-      const response = (await axios.post('/user', {
+      const response = (await axios.post(url + '/user', {
         username: data.username,
         password: data.password
       })).data;

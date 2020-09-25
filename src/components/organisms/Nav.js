@@ -1,6 +1,7 @@
 import React, {useContext} from 'react'
 import AppContext from '../../contexts/AppContext'
 import axios from 'axios'
+import url from '../../config';
 
 import Button from '../atoms/Button'
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
@@ -14,7 +15,7 @@ function Nav() {
     
     try {
 
-      await axios.post('/user/logout')
+      await axios.post(url + '/user/logout')
 
     } catch (err) {
 
