@@ -1,12 +1,12 @@
 import React from 'react';
-import LogInDialog from './components/organisms/LogInDialog';
-import SignUpDialog from './components/organisms/SignUpDialog';
+import LogIn from './components/pages/LogIn';
+import SignUp from './components/pages/SignUp';
 import UserProfile from './components/pages/UserProfile';
 
 function App() {
   return (
     <div className='container'>
-      <UserProfile/>
+      <LogIn/>
     </div>
   );
 }

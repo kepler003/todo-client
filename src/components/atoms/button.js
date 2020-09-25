@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Button(props) {
+function Button({children, ...props}) {
 
   let className = '';
 
@@ -12,8 +12,10 @@ function Button(props) {
 
   if(props.min) className += ' button--min-w'
 
+  if(props.icon) className += ' button--icon'
+
   return (
-    <button className={`button ${className}`}>{props.children}</button>
+    <button className={`button ${className} ${props.className}`}>{children}</button>
   )
 }
 

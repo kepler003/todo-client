@@ -1,9 +1,13 @@
 import React from 'react';
 
-function Input({children, password, ...props}) {
+function Input({children, password, className, ...props}) {
+
+  let condClassName = '';
+
+  if(props.pure) condClassName += ' input--pure';
 
   return (
-    <input className='input' type={password ? 'password' : 'text'} {...props}>{children}</input>
+    <input className={`input ${condClassName} ${className}`} type={password ? 'password' : 'text'} {...props}>{children}</input>
   )
 }
 
