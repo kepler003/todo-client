@@ -1,4 +1,10 @@
-body {
+
+* {
+  box-sizing: border-box;
+  color: var(--gray-3);
+}
+
+body, * {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -13,6 +19,7 @@ code {
 }
 
 
+
 /* Pre-prepared styles */
 
 :root {
@@ -22,7 +29,7 @@ code {
   --secondary: hsl(251, 68%, 70%);
   --success: hsl(147, 73%, 55%);
   --warning: hsl(49, 86%, 58%);
-  --danger: hsl(14, 68%, 58%);
+  --danger: hsl(0, 94%, 57%);
 
   /* Grays */
   --gray-1: hsl(0, 0%, 10%);
@@ -62,6 +69,7 @@ code {
 }
 
 
+
 /* Basic styles */
 
 .flex {
@@ -83,6 +91,7 @@ code {
 }
 
 
+
 /* Common components */
 
 .button {
@@ -95,6 +104,7 @@ code {
   min-height: 35px;
   padding: var(--s2) var(--s4);
   font-size: var(--s3);
+  font-weight: 700;
   background-color: white;
   color: var(--gray-2);
   border-radius: 1000px;
@@ -112,11 +122,61 @@ code {
   color: white;
 }
 
+.button--color-primary {
+  color: var(--primary);
+}
+
+.button--color-secondary {
+  color: var(--secondary);
+}
+
 .button--min-w {
   min-width: var(--s10);
 }
 
 
+
+.input__label {
+  padding: 0 var(--s3) var(--s1) var(--s3);
+  font-size: var(--s3);
+  font-weight: 700;
+}
+
+.input {
+  width: 100%;
+  height: 35px;
+  padding: 0 var(--s3);
+  margin: 0;
+  font-size: var(--s4);
+  background-color: white;
+  border: 2px solid var(--gray-6);
+  border-radius: 1000px;
+  transition: 150ms ease-in-out;
+}
+
+.input__container {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  max-width: var(--s13);
+  padding: var(--s2) 0 var(--s5);
+}
+
+.input__error {
+  padding: var(--s1) var(--s3) 0 var(--s3);
+  color: var(--danger);
+  font-size: var(--s3);
+  font-weight: 700;
+}
+
+.input:focus {
+  outline: none;
+  border: 2px solid var(--primary);
+}
+
+
+
+/* ** Project-specific components ** */
 
 .container {
   width: 100%;
@@ -131,10 +191,6 @@ code {
 
 
 
-/* ** Specific components ** */
-
-/* Dialog */
-
 .dialog__container {
   padding: var(--s4);
   width: 100%;
@@ -148,7 +204,7 @@ code {
   justify-content: center;
   align-items: center;
   align-content: center;
-  padding-bottom: var(--s7);
+  padding: 0 var(--s5) var(--s7) var(--s5);
   background-color: white;
   border-radius: var(--s3);
   box-shadow: var(--shadow-5);
@@ -161,4 +217,20 @@ code {
 
 .dialog__separator {
   margin: var(--s4) 0;
+}
+
+.dialog__action-btns {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  margin-top: var(--s5);
+}
+
+
+
+.profile-container {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  min-height: 100vh;
 }
