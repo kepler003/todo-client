@@ -1,8 +1,8 @@
-import React from 'react';
+import React        from 'react';
 
-import Nav from '../organisms/Nav';
-import AddNoteForm from '../organisms/AddNoteForm';
-import Notes from '../organisms/Notes';
+import Nav          from '../organisms/Nav';
+import AddNoteForm  from '../organisms/AddNoteForm';
+import Notes        from '../organisms/Notes';
 
 function UserProfile() {
 

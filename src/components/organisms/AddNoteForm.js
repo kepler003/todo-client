@@ -1,15 +1,15 @@
-import React, {useState, useContext} from 'react'
-import AppContext from '../../contexts/AppContext'
-import axios from 'axios';
+import React, {useState, useContext}  from 'react'
+import AppContext                     from '../../contexts/AppContext'
+import axios                          from 'axios';
 
-import Input from '../atoms/Input'
-import Button from '../atoms/Button'
-import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
-import { faPlus } from '@fortawesome/free-solid-svg-icons'
+import Input                        from '../atoms/Input'
+import Button                       from '../atoms/Button'
+import { FontAwesomeIcon as Icon }  from '@fortawesome/react-fontawesome'
+import { faPlus }                   from '@fortawesome/free-solid-svg-icons'
 
 function AddNoteForm() {
 
-  const {setContext} = useContext(AppContext)
+  const {setContext}    = useContext(AppContext)
   const [text, setText] = useState('')
 
   const handleSubmit = async (e) => {

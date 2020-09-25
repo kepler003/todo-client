@@ -1,11 +1,11 @@
 
-import React, {useState, useContext} from 'react';
-import {useHistory} from 'react-router-dom';
-import axios from 'axios';
+import React, {useState, useContext}  from 'react';
+import {useHistory}                   from 'react-router-dom';
+import axios                          from 'axios';
 
 import AppContext from '../../contexts/AppContext';
-import Button from '../atoms/Button';
-import InputBox from '../molecules/InputBox';
+import Button     from '../atoms/Button';
+import InputBox   from '../molecules/InputBox';
 
 function LogInDialog(props) {
 

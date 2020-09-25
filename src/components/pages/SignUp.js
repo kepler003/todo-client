@@ -1,5 +1,5 @@
-import React from 'react';
-import SignUpDialog from '../organisms/SignUpDialog';
+import React         from 'react';
+import SignUpDialog  from '../organisms/SignUpDialog';
 
 function SignUp() {
   return (
