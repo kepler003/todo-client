@@ -21,7 +21,7 @@ function LogInDialog(props) {
     try {
       
       e.preventDefault()
-  
+
       if(!data.username || !data.password) return;
   
       const response = (await axios.post(url + '/user/login',
